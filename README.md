@@ -13,17 +13,17 @@ git clone https://github.com/f10j0/gtfobins-checker.git
 
 Verify sudo privileges
 ```
-./check-sudo-privileges.sh
+sh check-sudo-privileges.sh
 ```
 
 Verify suid privileges
 ```
-./check-suid-privileges.sh
+sh check-suid-privileges.sh
 ```
 
 Verify capabilities privileges
 ```
-./check-caps-privileges.sh
+sh check-caps-privileges.sh
 ```
 
 ## Update Payloads and commad list
