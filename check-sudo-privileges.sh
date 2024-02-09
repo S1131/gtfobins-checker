@@ -7,7 +7,7 @@ read_nopass_all() {
         path=$(which $bin)
         exists=$(echo -e "$path" | grep -e "/$bin$")
         if [ -n "$exists" ]; then
-            echo -e "$path\n============================================================================="
+            echo -e " > $path"
             cat ./sudo/$bin
             echo -e "\n"
         fi
@@ -20,16 +20,22 @@ read_nopass_commands() {
     do  
         bin=$(echo "$command" | awk -F '/' '{print $NF}')
         if [[ -f "./sudo/$bin" ]]; then
-            echo -e "$command\n============================================================================="
+            echo -e " > $command"
             cat "./sudo/$bin"
             echo -e "\n"
         fi
     done
 }
 
-echo -e "\n\n  Sudo Privileged binaries\n\n"
-
 sudo_file=$(sudo -l)
+
+echo -e "\n\n"
+echo -e " > sudo -l \n"
+echo -e "$sudo_file"
+
+echo -e "\n\n\n"
+
+
 echo -e "$sudo_file" | while IFS= read -r line;
 do
     if echo $line | grep -q -E 'User ([a-z_]+) may run the following commands on ([a-z_]+):'; then                
