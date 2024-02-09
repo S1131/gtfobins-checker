@@ -1,15 +1,14 @@
 #!/bin/bash
 
-
 list=$(find / -perm -u=s -type f 2>/dev/null)
 
-for file in $(cat suid-commands.list)
+for command in $list
 do
-    command=$(echo -e "$list" | grep -e "/$file$")
-    if [ -n "$command" ]; then
-        echo "$command"
-        echo -e "============================================================================="
-        cat ./suid/$file | sed 's/\*\*\*\*\* SUID \*\*\*\*\*//' | sed 's/\*\*\*\*\* //'
-        echo -e "\n"
+    bin=$(echo "$command" | awk -F '/' '{print $NF}')
+    exists=$(grep "$bin" suid-commands.list)
+    if [ -n "$exists" ]; then
+        echo "$exists"
+        echo -e "$command\n============================================================================="
+        cat "suid/$bin"
     fi
 done
