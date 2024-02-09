@@ -29,8 +29,8 @@ read_nopass_commands() {
 
 sudo_file=$(sudo -l)
 
-echo -e "\n\n"
-echo -e " > sudo -l \n"
+echo -e "\n"
+echo -e " > sudo -l \n\n"
 echo -e "$sudo_file"
 
 echo -e "\n\n\n"
