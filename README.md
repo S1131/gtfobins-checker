@@ -21,30 +21,30 @@ Verify suid privileges
 ./check-suid-privileges.sh
 ```
 
+Verify capabilities privileges
+```
+./check-caps-privileges.sh
+```
+
 ## Update Payloads and commad list
 
 
 Install dependency
 ```
-sudo apt install html2text
+sudo apt install -y html2text curl
 ```
 
-Update 'SUID' commands list from gtfobins
+Update 'SUID' from gtfobins
 ```
-./download-suid-list.sh
-```
-
-Update 'Sudo' command list from gtfobins
-```
-./download-sudo-list.sh
+sh update/suid.sh
 ```
 
-Update suid payloads list from gtfobins
+Update 'Sudo' from gtfobins
 ```
-./download-suid-payloads.sh
+sh update/sudo.sh
 ```
 
-Update sudo payloads list from gtfobins
+Update 'Capabilities' from gtfobins
 ```
-./download-sudo-payloads.sh
+sh update/capabilities.sh
 ```
