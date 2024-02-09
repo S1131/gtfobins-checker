@@ -1,13 +1,14 @@
 #!/bin/bash
 
-read_all_sudo() {
+read_nopass_all() {
 
-    for command in $(cat sudo-commands.list)
+    for bin in $(cat sudo-commands.list)
     do
-        exists=$(which $command | grep -e "/$command$")
+        path=$(which $bin)
+        exists=$(echo -e "$path" | grep -e "/$bin$")
         if [ -n "$exists" ]; then
-            echo -e "============================================================================="
-            cat ./sudo/$command
+            echo -e "$path\n============================================================================="
+            cat ./sudo/$bin
             echo -e "\n"
         fi
     done
@@ -42,11 +43,11 @@ do
                 read_nopass_commands "$commands"
 
             fi
-            #if [[ "$line" == "    (ALL : ALL) ALL" ]]; then
-            #    echo -e "User: $user can elevate privileges with:\n"
-            #    read_all_sudo
-            #    echo ""
-            #fi
+            if echo $line | grep -q -e "NOPASSWD: ALL" ;then
+
+                read_nopass_all
+
+            fi
             IFS= read -r line
         done
     fi
