@@ -26,6 +26,8 @@ read_nopass_commands() {
     done
 }
 
+echo -e "\n\n  Sudo Privileged binaries\n\n"
+
 sudo_file=$(sudo -l)
 echo -e "$sudo_file" | while IFS= read -r line;
 do

@@ -1,18 +1,15 @@
 # gtfobins-checker
 
-Easy Checker Privileges thx to GTFOBins Project
+Privileges checker thx to GTFOBins Project
 `https://gtfobins.github.io/`
 
 
-## Install
+## Usage
+
+Download repository
 ```
-# Install dependency
-sudo apt install html2text
-# Clone repository
 git clone https://github.com/f10j0/gtfobins-checker.git
 ```
-
-## Usage
 
 Verify sudo privileges
 ```
@@ -26,7 +23,13 @@ Verify suid privileges
 
 ## Update Payloads and commad list
 
- Update 'SUID' commands list from gtfobins
+
+Install dependency
+```
+sudo apt install html2text
+```
+
+Update 'SUID' commands list from gtfobins
 ```
 ./download-suid-list.sh
 ```
