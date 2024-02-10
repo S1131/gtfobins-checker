@@ -11,7 +11,7 @@ echo  "\n\n\n"
 for command in $list
 do
     bin=$(echo "$command" | awk -F '/' '{print $NF}')
-    exists=$(grep "$bin" ./data/suid-commands.list)
+    exists=$(egrep -e "^$bin$" ./data/suid-commands.list)
     if [ -n "$exists" ]; then
         echo  "\n > $command"
         cat "./data/suid/$bin"
