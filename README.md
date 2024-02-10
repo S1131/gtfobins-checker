@@ -3,6 +3,9 @@
 Privileges checker thx to GTFOBins Project
 `https://gtfobins.github.io/`
 
+## Description
+
+Checks privileges escalation for sudo, suid, capabilities and shows escalation help.
 
 ## Usage
 
